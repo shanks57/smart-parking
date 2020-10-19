@@ -20,12 +20,20 @@ def index():
 def show(pin):
     cursor.execute("SELECT * FROM parking WHERE pin = " + pin)
     result = cursor.fetchone()
+    print(url_for('index'))
+    print(url_for('login'))
+    print(url_for('login', next='/'))
+    print(url_for('profile', username='John Doe'))
     return jsonify(result)
 
 
 @app.route("/<pin>", methods=["PUT"])
 def update(pin):
     data = json.loads(request.data)
+    print(url_for('index'))
+    print(url_for('login'))
+    print(url_for('login', next='/'))
+    print(url_for('profile', username='John Doe'))
     cursor.execute("UPDATE parking SET status = " + str(data['status']) +
                    " WHERE pin = " + pin)
     return jsonify('updated')
