@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
     cursor.execute("SELECT * FROM parking")
     result = cursor.fetchall()
+    print(url_for('index'))
+    print(url_for('login'))
+    print(url_for('login', next='/'))
+    print(url_for('profile', username='John Doe'))
     return jsonify(result)
 
 
